@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Neighborhood map project.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Neigborhood Map Project</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <a id="hamburger" data-bind="click: toggle()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"></path>
+            </svg>
+        </a>
+        <h1 class="title">Sight Seeing in Frankfurt</h1>
+    </header>
+    <div class="main">
+        <nav class="list_pane" data-bind="css: {open: isOpen}">
+            <div>
+                <input class="search" placeholder="Search ....." data-bind="value: searchTerm, valueUpdate: 'afterkeydown'" />
+            </div>
+            <div>
+                <ul id="liste" data-bind="foreach: filteredItems">
+                    <li class="list_item" data-bind="text: title, click: $parent.clickEventMarker"></li>
+                </ul>
+            </div>
+        </nav>
+        <main id="map"></main>
+    </div>
+
+    <script type="text/javascript" src="js/knockout-3.4.2.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArlrrFveF5M-k5VnpbruTYWSIE_XW-fWI&v=3&callback=initMap" onerror="errorHandler()"></script>
+
+</body>
+
+</html>
